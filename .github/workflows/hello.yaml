@@ -1,6 +1,11 @@
 name: Hello Agile
 
-on: [push]
+on:
+  push:
+    branches: [ dev ]      # Runs workflow only when code is pushed to 'dev'
+  pull_request:
+    branches: [ main ]     # Runs workflow when PR is opened targeting 'main'
+
 
 jobs:
   say_hello:
@@ -8,3 +13,5 @@ jobs:
     steps:
       - name: Print Hello
         run: echo "Hello from GitHub Actions!"
+# This is a test comment to trigger workflow on dev branch
+
